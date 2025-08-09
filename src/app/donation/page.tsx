@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import {
   HeartIcon,
   AcademicCapIcon,
@@ -192,10 +193,11 @@ export default function DonationPage() {
             {donationCauses.map((cause, index) => (
               <Card key={index} hover className="overflow-hidden">
                 <div className="relative h-48">
-                  <img
+                  <Image
                     src={cause.image}
                     alt={cause.title}
-                    className="h-full w-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <CardHeader>
@@ -238,10 +240,11 @@ export default function DonationPage() {
               <Card key={index} className="text-center">
                 <CardContent>
                   <div className="relative h-20 w-20 mx-auto mb-4 rounded-full overflow-hidden">
-                    <img
+                    <Image
                       src={story.image}
                       alt={story.name}
-                      className="h-full w-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                   <blockquote className="text-gray-600 italic mb-4">

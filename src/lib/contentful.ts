@@ -4,8 +4,6 @@
 // Environment variables for Contentful (to be set when connecting)
 const CONTENTFUL_SPACE_ID = process.env.CONTENTFUL_SPACE_ID;
 const CONTENTFUL_ACCESS_TOKEN = process.env.CONTENTFUL_ACCESS_TOKEN;
-const CONTENTFUL_PREVIEW_ACCESS_TOKEN =
-  process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN;
 
 // Type definitions for blog content
 export interface BlogPostType {

@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import Image from "next/image";
 import { samplePrograms } from "@/data/sampleData";
 
 export const metadata: Metadata = {
@@ -64,10 +65,11 @@ export default function ProgramsPage() {
             {featured.map((program) => (
               <Card key={program.id} hover>
                 <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden">
-                  <img
+                  <Image
                     src={program.image}
                     alt={program.title}
-                    className="h-full w-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <h3 className="text-lg font-semibold mb-1">{program.title}</h3>
@@ -96,10 +98,11 @@ export default function ProgramsPage() {
             {others.map((program) => (
               <Card key={program.id} hover>
                 <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden">
-                  <img
+                  <Image
                     src={program.image}
                     alt={program.title}
-                    className="h-full w-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <h3 className="text-lg font-semibold mb-1">{program.title}</h3>

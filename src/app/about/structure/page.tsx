@@ -1,4 +1,5 @@
 import Card from "@/components/ui/Card";
+import Image from "next/image";
 import { Facebook, Instagram, Linkedin, Twitter } from "lucide-react";
 
 type Socials = {
@@ -140,9 +141,11 @@ export default function OrganizationStructurePage() {
               <Card key={person.name} className="text-center">
                 <div className="flex flex-col items-center p-2">
                   <div className="h-24 w-24 rounded-full overflow-hidden ring-2 ring-emerald-100 mb-4">
-                    <img
+                    <Image
                       src={person.photo}
                       alt={person.name}
+                      width={96}
+                      height={96}
                       className="h-full w-full object-cover"
                     />
                   </div>

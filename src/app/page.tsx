@@ -6,12 +6,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { ArrowRightIcon, PlayIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import {
-  sampleEvents,
-  sampleBlogPosts,
-  sampleSocialMedia,
-  samplePrograms,
-} from "@/data/sampleData";
+import Image from "next/image";
+import { sampleEvents, sampleBlogPosts } from "@/data/sampleData";
 
 // Simple Card component
 function Card({
@@ -158,10 +154,11 @@ function RecentActivities() {
           {recentEvents.map((event) => (
             <Card key={event.id} hover className="overflow-hidden">
               <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden">
-                <img
+                <Image
                   src={event.image}
                   alt={event.title}
-                  className="h-full w-full object-cover"
+                  fill
+                  className="object-cover"
                 />
                 <div className="absolute top-4 left-4">
                   <span className="inline-flex items-center rounded-full bg-emerald-600 px-3 py-1 text-xs font-medium text-white">
@@ -222,10 +219,11 @@ function RecentArticles() {
           {recentPosts.map((post) => (
             <Card key={post.id} hover className="overflow-hidden">
               <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden">
-                <img
+                <Image
                   src={post.image}
                   alt={post.title}
-                  className="h-full w-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">

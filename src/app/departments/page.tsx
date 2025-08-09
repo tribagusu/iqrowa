@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Card from "@/components/ui/Card";
+import Image from "next/image";
 import { departments } from "@/data/sampleData";
 
 export default function DepartmentsPage() {
@@ -23,10 +24,11 @@ export default function DepartmentsPage() {
               <Link key={dept.id} href={`/departments/${dept.id}`}>
                 <Card hover className="text-center">
                   <div className="relative h-32 w-full mb-4 rounded-lg overflow-hidden">
-                    <img
+                    <Image
                       src={dept.image}
                       alt={dept.name}
-                      className="h-full w-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                   <h3 className="text-lg font-semibold mb-1">{dept.name}</h3>

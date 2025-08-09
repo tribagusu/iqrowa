@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import {
   HeartIcon,
   GlobeAltIcon,
@@ -7,12 +8,7 @@ import {
   LightBulbIcon,
   HandRaisedIcon,
 } from "@heroicons/react/24/outline";
-import Card, {
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/Card";
+import Card, { CardContent, CardHeader, CardTitle } from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 
 export const metadata: Metadata = {
@@ -282,10 +278,11 @@ export default function AboutPage() {
               <Card key={index} hover className="text-center">
                 <CardContent>
                   <div className="relative h-32 w-32 mx-auto mb-4 rounded-full overflow-hidden">
-                    <img
+                    <Image
                       src={leader.image}
                       alt={leader.name}
-                      className="h-full w-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-1">

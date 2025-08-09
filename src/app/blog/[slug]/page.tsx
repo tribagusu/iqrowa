@@ -13,9 +13,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const post = sampleBlogPosts.find((p) => createSlug(p.title) === params.slug);
+  const { slug } = await params;
+  const post = sampleBlogPosts.find((p) => createSlug(p.title) === slug);
   if (!post) return { title: "Article" };
   return {
     title: `${post.title} | Blog`,
@@ -23,12 +24,13 @@ export async function generateMetadata({
   };
 }
 
-export default function BlogArticlePage({
+export default async function BlogArticlePage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = sampleBlogPosts.find((p) => createSlug(p.title) === params.slug);
+  const { slug } = await params;
+  const post = sampleBlogPosts.find((p) => createSlug(p.title) === slug);
   if (!post) return notFound();
 
   return (

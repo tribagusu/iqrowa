@@ -1,14 +1,16 @@
 import { notFound } from "next/navigation";
 import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
+import Link from "next/link";
+import Image from "next/image";
 import { departments, samplePrograms } from "@/data/sampleData";
 
-export default function DepartmentDetailPage({
+export default async function DepartmentDetailPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const dept = departments.find((d) => d.id === params.id);
+  const { id } = await params;
+  const dept = departments.find((d) => d.id === id);
   if (!dept) return notFound();
 
   const programs = samplePrograms.filter((p) => p.department === dept.name);
@@ -31,10 +33,11 @@ export default function DepartmentDetailPage({
               </div>
             </div>
             <div className="relative h-48 lg:h-56 rounded-xl overflow-hidden">
-              <img
+              <Image
                 src={dept.image}
                 alt={dept.name}
-                className="h-full w-full object-cover"
+                fill
+                className="object-cover"
               />
             </div>
           </div>
@@ -54,10 +57,11 @@ export default function DepartmentDetailPage({
               {programs.map((program) => (
                 <Card key={program.id} hover>
                   <div className="relative h-40 w-full mb-4 rounded-lg overflow-hidden">
-                    <img
+                    <Image
                       src={program.image}
                       alt={program.title}
-                      className="h-full w-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                   <h3 className="text-lg font-semibold mb-1">
@@ -77,12 +81,12 @@ export default function DepartmentDetailPage({
             </div>
           )}
           <div className="text-center mt-10">
-            <a
+            <Link
               href="/departments"
               className="inline-flex items-center justify-center rounded-lg border border-emerald-600 px-4 py-2 text-sm font-medium text-emerald-600 hover:bg-emerald-600 hover:text-white"
             >
               Back to Departments
-            </a>
+            </Link>
           </div>
         </div>
       </section>

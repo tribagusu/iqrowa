@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
+import Image from "next/image";
 import { sampleNews } from "@/data/sampleData";
 
 export const metadata: Metadata = {
@@ -28,10 +29,11 @@ export default function NewsPage() {
             {sampleNews.map((item) => (
               <Card key={item.id} hover className="overflow-hidden">
                 <div className="relative h-48 w-full mb-4 rounded-lg overflow-hidden">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.title}
-                    className="h-full w-full object-cover"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <div className="flex items-center justify-between text-sm text-gray-500 mb-2">

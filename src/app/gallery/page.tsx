@@ -1,4 +1,5 @@
 import Card from "@/components/ui/Card";
+import Image from "next/image";
 
 const galleryItems: { id: string; src: string; alt: string }[] = [
   {
@@ -52,11 +53,14 @@ export default function GalleryPage() {
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {galleryItems.map((item) => (
               <Card key={item.id} hover className="overflow-hidden p-0">
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="h-64 w-full object-cover"
-                />
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
                 <div className="p-4">
                   <p className="text-gray-600">{item.alt}</p>
                 </div>

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import {
   MagnifyingGlassIcon,
   TagIcon,
@@ -47,10 +48,11 @@ function FeaturedPost({
   return (
     <Card className="overflow-hidden lg:grid lg:grid-cols-2 lg:gap-8">
       <div className="relative h-64 lg:h-full">
-        <img
+        <Image
           src={post.image}
           alt={post.title}
-          className="h-full w-full object-cover"
+          fill
+          className="object-cover"
         />
         <div className="absolute top-4 left-4">
           <span className="inline-flex items-center rounded-full bg-primary px-3 py-1 text-sm font-medium text-white">
@@ -110,10 +112,11 @@ function BlogPostCard({
   return (
     <Card hover className="overflow-hidden h-full">
       <div className="relative h-48">
-        <img
+        <Image
           src={post.image}
           alt={post.title}
-          className="h-full w-full object-cover"
+          fill
+          className="object-cover"
         />
       </div>
       <CardHeader>

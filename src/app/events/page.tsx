@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import {
   CalendarIcon,
   MapPinIcon,
@@ -48,10 +49,11 @@ function EventCard({
   return (
     <Card hover className="overflow-hidden">
       <div className="relative h-48">
-        <img
+        <Image
           src={event.image}
           alt={event.title}
-          className="h-full w-full object-cover"
+          fill
+          className="object-cover"
         />
         <div className="absolute top-4 left-4">
           <span className="inline-flex items-center rounded-full bg-primary px-3 py-1 text-sm font-medium text-white">
